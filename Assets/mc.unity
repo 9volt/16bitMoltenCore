@@ -90,7 +90,7 @@ GameObject:
   - 114: {fileID: 64367454}
   m_Layer: 0
   m_Name: mage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frostbolt: {fileID: 100000, guid: f399e9587adfd4de785628cdd5888bdd, type: 2}
   frostbolt_cast_time: 1.5
+  blue: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
+  camera: {fileID: 1134030794}
 --- !u!1 &541900261
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +334,7 @@ GameObject:
   - 92: {fileID: 1134030793}
   - 124: {fileID: 1134030792}
   - 81: {fileID: 1134030791}
+  - 114: {fileID: 1134030796}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -400,3 +403,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1134030796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1134030790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860c805aa146045b5b8cb271e0de4f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
