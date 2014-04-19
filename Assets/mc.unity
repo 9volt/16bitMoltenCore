@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 35
   maxSpeed: 5
+  interrupt_casting: 0
 --- !u!212 &1464770630
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class mage : MonoBehaviour {
 	public GameObject frostbolt;
-	private bool casting;
+	private bool casting = false;
 	public float frostbolt_cast_time;
 	private float end_cast;
 	private float start_cast;
@@ -11,9 +11,11 @@ public class mage : MonoBehaviour {
 	public Camera camera;
 	private Vector2 last_heading;
 	private int playerNum;
+	private PlayerControl pc;
 	// Use this for initialization
 	void Start () {
 		playerNum = gameObject.GetComponent<player_health>().playerNum;
+		pc = gameObject.GetComponent<PlayerControl>();
 	}
 
 	void ShootFrostbolt(){
@@ -33,7 +35,8 @@ public class mage : MonoBehaviour {
 			ShootFrostbolt();
 			casting = false;
 		}
-		if(rigidbody2D.velocity != Vector2.zero){
+		if(pc.interrupt_casting){
+			Debug.Log("break");
 			casting = false;
 			last_heading = rigidbody2D.velocity;
 		}
@@ -50,7 +53,7 @@ public class mage : MonoBehaviour {
 
 	void OnGUI(){
 		if(casting){
-			Vector3 p = camera.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y * -1, 0));
+			Vector3 p = camera.WorldToScreenPoint(transform.position);
 			GUI.DrawTexture(new Rect(p.x - 20, p.y - 40, ((Time.time-start_cast)/frostbolt_cast_time) * 30, 5), blue);
 		}
 	}

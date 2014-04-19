@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   player: {fileID: 0}
+  speed: 250
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
