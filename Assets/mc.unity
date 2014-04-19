@@ -380,6 +380,7 @@ MonoBehaviour:
   moveForce: 35
   maxSpeed: 5
   interrupt_casting: 0
+  dir: 0
 --- !u!212 &1269931911
 SpriteRenderer:
   m_ObjectHideFlags: 0

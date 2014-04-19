@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour {
 	private int playerNum;
 	public bool interrupt_casting = false;
 	private Camera camera;
+	public float dir = 0f;
 
 	void Start () {
 		playerNum = gameObject.GetComponent<player_health>().playerNum;
@@ -26,8 +27,10 @@ public class PlayerControl : MonoBehaviour {
 			// ... add a force to the player.
 			if(h < 0 && camera.WorldToScreenPoint(transform.position).x > 0){
 				rigidbody2D.AddForce(Vector2.right * h * moveForce);
+				dir = 180f;
 			} else if(h > 0 && camera.WorldToScreenPoint(transform.position).x < Screen.width){
 				rigidbody2D.AddForce(Vector2.right * h * moveForce);
+				dir = 0f;
 			}
 		}
 
@@ -37,9 +40,11 @@ public class PlayerControl : MonoBehaviour {
 		if(v * rigidbody2D.velocity.y < maxSpeed){
 			// ... add a force to the player.
 			if(v > 0 && camera.WorldToScreenPoint(transform.position).y < Screen.height){
+				dir = 90f;
 				rigidbody2D.AddForce(Vector2.up * v * moveForce);
 			} else if(v < 0 && camera.WorldToScreenPoint(transform.position).y > 0){
 				rigidbody2D.AddForce(Vector2.up * v * moveForce);
+				dir = 270f;
 			}
 		}
 		if(h != 0 || v != 0){

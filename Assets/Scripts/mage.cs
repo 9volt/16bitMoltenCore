@@ -12,6 +12,7 @@ public class mage : MonoBehaviour {
 	private Vector2 last_heading;
 	private int playerNum;
 	private PlayerControl pc;
+
 	// Use this for initialization
 	void Start () {
 		playerNum = gameObject.GetComponent<player_health>().playerNum;
@@ -20,7 +21,8 @@ public class mage : MonoBehaviour {
 	}
 
 	void ShootFrostbolt(){
-		GameObject g = (GameObject)Instantiate(frostbolt, transform.position, transform.rotation);
+		Quaternion q = Quaternion.Euler(0f, 0f, pc.dir);
+		GameObject g = (GameObject)Instantiate(frostbolt, transform.position, q);
 		g.GetComponent<shot>().player = gameObject;
 	}
 
