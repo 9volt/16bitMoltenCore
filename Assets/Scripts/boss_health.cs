@@ -26,6 +26,7 @@ public class boss_health : MonoBehaviour {
 			foreach(KeyValuePair<GameObject, float> kvp in aggro_table){
 				if(kvp.Value > max_threat){
 					target = kvp.Key;
+					max_threat = kvp.Value;
 				}
 	        }
 			if(Vector3.Distance(transform.position, target.transform.position) > 2f){

@@ -20,8 +20,6 @@ public class mage : MonoBehaviour {
 	}
 
 	void ShootFrostbolt(){
-		Debug.Log(last_heading);
-		Quaternion q = Quaternion.LookRotation(last_heading, Vector3.forward);
 		GameObject g = (GameObject)Instantiate(frostbolt, transform.position, transform.rotation);
 		g.GetComponent<shot>().player = gameObject;
 	}
@@ -37,7 +35,6 @@ public class mage : MonoBehaviour {
 			casting = false;
 		}
 		if(pc.interrupt_casting){
-			Debug.Log("break");
 			casting = false;
 			last_heading = rigidbody2D.velocity;
 		}
@@ -53,6 +50,8 @@ public class mage : MonoBehaviour {
 	}
 
 	void OnGUI(){
+		Vector3 g = camera.WorldToScreenPoint(transform.position);
+		GUI.DrawTexture(new Rect(g.x, g.y, 5, 5), blue);
 		if(casting){
 			Vector3 p = camera.WorldToScreenPoint(transform.position);
 			GUI.DrawTexture(new Rect(p.x - 20, p.y - 40, ((Time.time-start_cast)/frostbolt_cast_time) * 30, 5), blue);
