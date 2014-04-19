@@ -10,10 +10,10 @@ public class mage : MonoBehaviour {
 	public Texture blue;
 	public Camera camera;
 	private Vector2 last_heading;
-
+	private int playerNum;
 	// Use this for initialization
 	void Start () {
-
+		playerNum = gameObject.GetComponent<player_health>().playerNum;
 	}
 
 	void ShootFrostbolt(){
@@ -38,12 +38,12 @@ public class mage : MonoBehaviour {
 			last_heading = rigidbody2D.velocity;
 		}
 
-		if(!casting && Input.GetButton("Fire1")){
+		if(!casting && Input.GetButton("A" + playerNum)){
 			casting = true;
 			start_cast = Time.time;
 			end_cast = frostbolt_cast_time + Time.time;
 		}
-		if(!casting && Input.GetButton("Fire2")){
+		if(!casting && Input.GetButton("B" + playerNum)){
 			ArcaneExplosion();
 		}
 	}

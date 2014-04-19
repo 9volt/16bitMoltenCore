@@ -8,7 +8,7 @@ public class player_health : MonoBehaviour {
 	public Texture green;
 	public Texture red;
 	public bool active = true;
-
+	public int playerNum;
 	// Use this for initialization
 	void Start () {
 		current_health = health;
