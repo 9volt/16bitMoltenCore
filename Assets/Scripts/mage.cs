@@ -8,7 +8,7 @@ public class mage : MonoBehaviour {
 	private float end_cast;
 	private float start_cast;
 	public Texture blue;
-	public Camera camera;
+	private Camera camera;
 	private Vector2 last_heading;
 	private int playerNum;
 	private PlayerControl pc;
@@ -16,6 +16,7 @@ public class mage : MonoBehaviour {
 	void Start () {
 		playerNum = gameObject.GetComponent<player_health>().playerNum;
 		pc = gameObject.GetComponent<PlayerControl>();
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
 	void ShootFrostbolt(){
