@@ -15,6 +15,7 @@ public class NetworkManager : MonoBehaviour {
 	public GameObject spawn;
 	public GameObject[] bosses;
 	public GameObject[] boss_spawns;
+	private bool spawning = false;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +41,7 @@ public class NetworkManager : MonoBehaviour {
 
 	void StartServer(){
 		Network.InitializeServer(4, 25025, !Network.HavePublicAddress());
-		MasterServer.RegisterHost(game_name, "Thenmal Networking Test", "DO NOT EAT");
+		MasterServer.RegisterHost(game_name, "16bitMoltenCore", "DO NOT EAT");
 	}
 
 
@@ -52,8 +53,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void OnServerInitialized(){
-		Debug.Log("Server initialized");
-		SpawnPlayer();
+		spawning = true;
 		for(int i = 0; i < bosses.Length; i++){
 			Network.Instantiate(bosses[i], boss_spawns[i].transform.position, boss_spawns[i].transform.rotation, 0);
 		}
@@ -63,19 +63,48 @@ public class NetworkManager : MonoBehaviour {
 
 	}
 
-	void SpawnPlayer(){
-		Network.Instantiate(mage, spawn.transform.position, spawn.transform.rotation, 0);
-	}
-
-	void SpawnPlayer2(){
-		Network.Instantiate(priest, spawn.transform.position, spawn.transform.rotation, 0);
+	void SpawnPlayer(GameObject prefab){
+		spawning = false;
+		Network.Instantiate(prefab, spawn.transform.position, spawn.transform.rotation, 0);
 	}
 	
 	void OnConnectedToServer(){
-		SpawnPlayer2();
+		spawning = true;
+	}
+
+	bool IsThereA(string class_name){
+		foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player")){
+			if(go.name == class_name + "(Clone)" && go.activeSelf){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	void OnGUI(){
+		if(spawning){
+			if(!IsThereA("mage")){
+				if(GUI.Button(new Rect(btnX, btnY, btnW, btnH), "Mage")){
+					SpawnPlayer(mage);
+				}
+			}
+			if(!IsThereA("priest")){
+				if(GUI.Button(new Rect(btnX, btnY * 1.2f + btnH, btnW, btnH), "Priest")){
+					SpawnPlayer(priest);
+				}
+			}
+			if(!IsThereA("warrior")){
+				if(GUI.Button(new Rect(btnX, btnY * 1.4f + (btnH * 2), btnW, btnH), "Warrior")){
+					SpawnPlayer(priest);
+				}
+			}
+			if(!IsThereA("hunter")){
+				if(GUI.Button(new Rect(btnX, btnY * 1.6f + (btnH * 3), btnW, btnH), "Hunter")){
+					SpawnPlayer(priest);
+				}
+			}
+		}
+
 		if(!Network.isClient && !Network.isServer){
 			if(GUI.Button(new Rect(btnX, btnY, btnW, btnH), "Start Server")){
 				StartServer();

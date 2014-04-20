@@ -11,9 +11,14 @@ public class boss_health : MonoBehaviour {
 	public bool active = false;
 	private Dictionary<GameObject, float> aggro_table;
 	private GameObject current_aggro;
+	public bool attacking = true;
+	public float attack_speed;
+	public int attack_damage;
+	private float next_attack;
 
 	// Use this for initialization
 	void Start () {
+		next_attack = Time.time;
 		current_health = health;
 		aggro_table = new Dictionary<GameObject, float>();
 	}
@@ -29,9 +34,13 @@ public class boss_health : MonoBehaviour {
 						max_threat = kvp.Value;
 					}
 		        }
-				Debug.Log(max_threat);
-				if(Vector3.Distance(transform.position, current_aggro.transform.position) > 2f){
-					transform.position = Vector3.MoveTowards(transform.position,  current_aggro.transform.position , 2 * Time.deltaTime);
+				if(attacking){
+					if(Vector3.Distance(transform.position, current_aggro.transform.position) > 2f){
+						transform.position = Vector3.MoveTowards(transform.position,  current_aggro.transform.position , 2 * Time.deltaTime);
+					} else if(Time.time > next_attack){
+						next_attack = Time.time + attack_speed;
+						current_aggro.GetComponent<player_health>().damage(attack_damage);
+					}
 				}
 			}
 		}

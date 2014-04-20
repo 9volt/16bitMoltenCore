@@ -51,10 +51,11 @@ public class mage : MonoBehaviour {
 
 	void OnGUI(){
 		Vector3 g = camera.WorldToScreenPoint(transform.position);
+		Rect offset = gameObject.GetComponent<SpriteRenderer>().sprite.rect;
 		GUI.DrawTexture(new Rect(g.x, g.y, 5, 5), blue);
 		if(casting){
 			Vector3 p = camera.WorldToScreenPoint(transform.position);
-			GUI.DrawTexture(new Rect(p.x - 20, p.y - 40, ((Time.time-start_cast)/frostbolt_cast_time) * 30, 5), blue);
+			GUI.DrawTexture(new Rect(p.x - 15, p.y - (offset.height / 1.25f), ((Time.time-start_cast)/frostbolt_cast_time) * 30, 5), blue);
 		}
 	}
 }

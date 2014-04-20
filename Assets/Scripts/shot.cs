@@ -5,6 +5,7 @@ public class shot : MonoBehaviour {
 	public int damage;
 	public GameObject player;
 	public float speed;
+	public float time_to_live;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class shot : MonoBehaviour {
 				distance = Vector3.Distance(go.transform.position, transform.position);
 			}
 		}
-		Destroy(gameObject, 20);
+		Destroy(gameObject, time_to_live);
 	}
 	
 	// Update is called once per frame

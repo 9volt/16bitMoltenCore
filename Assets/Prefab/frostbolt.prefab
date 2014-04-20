@@ -85,6 +85,7 @@ MonoBehaviour:
   damage: 5
   player: {fileID: 0}
   speed: 250
+  time_to_live: 20
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
