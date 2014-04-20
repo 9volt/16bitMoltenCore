@@ -40,6 +40,7 @@ public class boss_health : MonoBehaviour {
 	void damage(int damage, GameObject player){
 		if(networkView.isMine){
 			current_health -= damage;
+			networkView.RPC("set_health", RPCMode.AllBuffered, current_health);
 			if(current_health < 0) current_health = 0;
 			float threat = 0;
 			if(aggro_table.TryGetValue(player, out threat)){
@@ -48,6 +49,11 @@ public class boss_health : MonoBehaviour {
 				aggro_table.Add(player, damage);
 			}
 		}
+	}
+
+	[RPC]
+	void set_health(int health){
+		current_health = health;
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
