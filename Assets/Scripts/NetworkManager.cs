@@ -11,6 +11,7 @@ public class NetworkManager : MonoBehaviour {
 	private float end_time;
 	private HostData[] servers = new HostData[0];
 	public GameObject mage;
+	public GameObject priest;
 	public GameObject spawn;
 	public GameObject[] bosses;
 	public GameObject[] boss_spawns;
@@ -66,8 +67,12 @@ public class NetworkManager : MonoBehaviour {
 		Network.Instantiate(mage, spawn.transform.position, spawn.transform.rotation, 0);
 	}
 
+	void SpawnPlayer2(){
+		Network.Instantiate(priest, spawn.transform.position, spawn.transform.rotation, 0);
+	}
+	
 	void OnConnectedToServer(){
-		SpawnPlayer();
+		SpawnPlayer2();
 	}
 
 	void OnGUI(){

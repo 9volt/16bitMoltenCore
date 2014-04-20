@@ -20,7 +20,6 @@ public class mage : MonoBehaviour {
 
 	void ShootFrostbolt(){
 		Quaternion q = Quaternion.Euler(0f, 0f, pc.dir);
-		frostbolt.GetComponent<shot>().player = gameObject;
 		Network.Instantiate(frostbolt, transform.position, q, 0);
 		//g.GetComponent<shot>().player = gameObject;
 	}
