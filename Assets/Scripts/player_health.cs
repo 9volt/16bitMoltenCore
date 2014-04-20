@@ -38,6 +38,9 @@ public class player_health : MonoBehaviour {
 	[RPC]
 	void set_health(int new_health){
 		current_health = new_health;
+		if(current_health <= 0){
+			gameObject.SetActive(false);
+		}
 	}
 
 

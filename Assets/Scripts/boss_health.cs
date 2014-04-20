@@ -63,6 +63,9 @@ public class boss_health : MonoBehaviour {
 	[RPC]
 	void set_health(int health){
 		current_health = health;
+		if(current_health <= 0){
+			gameObject.SetActive(false);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
