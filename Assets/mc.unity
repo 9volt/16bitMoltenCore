@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mage: {fileID: 100000, guid: bec4e31c9c4f7466eaf490e16337e76f, type: 2}
   priest: {fileID: 100000, guid: defe9ffadf8e944cda6655ab217a127f, type: 2}
+  warrior: {fileID: 100000, guid: 4ca8f155809154a25867e196e541e457, type: 2}
+  hunter: {fileID: 100000, guid: 1295c7c80b0ac42fe8f7f6a6cd8777b3, type: 2}
   spawn: {fileID: 214675750}
   bosses:
   - {fileID: 100000, guid: 2cf0b8ec185744aab9ea086bc348ddaa, type: 2}

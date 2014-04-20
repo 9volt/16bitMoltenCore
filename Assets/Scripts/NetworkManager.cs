@@ -12,6 +12,8 @@ public class NetworkManager : MonoBehaviour {
 	private HostData[] servers = new HostData[0];
 	public GameObject mage;
 	public GameObject priest;
+	public GameObject warrior;
+	public GameObject hunter;
 	public GameObject spawn;
 	public GameObject[] bosses;
 	public GameObject[] boss_spawns;
@@ -95,12 +97,12 @@ public class NetworkManager : MonoBehaviour {
 			}
 			if(!IsThereA("warrior")){
 				if(GUI.Button(new Rect(btnX, btnY * 1.4f + (btnH * 2), btnW, btnH), "Warrior")){
-					SpawnPlayer(priest);
+					SpawnPlayer(warrior);
 				}
 			}
 			if(!IsThereA("hunter")){
 				if(GUI.Button(new Rect(btnX, btnY * 1.6f + (btnH * 3), btnW, btnH), "Hunter")){
-					SpawnPlayer(priest);
+					SpawnPlayer(hunter);
 				}
 			}
 		}
