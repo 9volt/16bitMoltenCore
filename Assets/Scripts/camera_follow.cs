@@ -6,7 +6,7 @@ public class camera_follow : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		players = GameObject.FindGameObjectsWithTag("Player");
+
 	}
 
 	Vector3 FindCenter(){
@@ -23,6 +23,7 @@ public class camera_follow : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		players = GameObject.FindGameObjectsWithTag("Player");
 		Vector3 newPos = FindCenter();
 		newPos.z = -10;
 		transform.position = newPos;

@@ -8,6 +8,7 @@ public class shot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Debug.Log(gameObject.parent);
 		Destroy(gameObject, 20);
 	}
 	

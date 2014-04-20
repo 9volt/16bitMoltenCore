@@ -20,29 +20,33 @@ public class boss_health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(aggro_table.Count > 0){
-			GameObject target = null;
-			float max_threat = 0;
-			foreach(KeyValuePair<GameObject, float> kvp in aggro_table){
-				if(kvp.Value > max_threat){
-					target = kvp.Key;
-					max_threat = kvp.Value;
+		if(networkView.isMine){
+			if(aggro_table.Count > 0){
+				GameObject target = null;
+				float max_threat = 0;
+				foreach(KeyValuePair<GameObject, float> kvp in aggro_table){
+					if(kvp.Value > max_threat){
+						target = kvp.Key;
+						max_threat = kvp.Value;
+					}
+		        }
+				if(Vector3.Distance(transform.position, target.transform.position) > 2f){
+		        	transform.position = Vector3.MoveTowards(transform.position,  target.transform.position , 2 * Time.deltaTime);
 				}
-	        }
-			if(Vector3.Distance(transform.position, target.transform.position) > 2f){
-	        	transform.position = Vector3.MoveTowards(transform.position,  target.transform.position , 2 * Time.deltaTime);
 			}
 		}
 	}
 
 	void damage(int damage, GameObject player){
-		current_health -= damage;
-		if(current_health < 0) current_health = 0;
-		float threat = 0;
-		if(aggro_table.TryGetValue(player, out threat)){
-			aggro_table[player] = threat + damage;
-		} else {
-			aggro_table.Add(player, damage);
+		if(networkView.isMine){
+			current_health -= damage;
+			if(current_health < 0) current_health = 0;
+			float threat = 0;
+			if(aggro_table.TryGetValue(player, out threat)){
+				aggro_table[player] = threat + damage;
+			} else {
+				aggro_table.Add(player, damage);
+			}
 		}
 	}
 

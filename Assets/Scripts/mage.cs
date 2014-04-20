@@ -10,20 +10,19 @@ public class mage : MonoBehaviour {
 	public Texture blue;
 	private Camera camera;
 	private Vector2 last_heading;
-	private int playerNum;
 	private PlayerControl pc;
 
 	// Use this for initialization
 	void Start () {
-		playerNum = gameObject.GetComponent<player_health>().playerNum;
 		pc = gameObject.GetComponent<PlayerControl>();
 		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
 	void ShootFrostbolt(){
 		Quaternion q = Quaternion.Euler(0f, 0f, pc.dir);
-		GameObject g = (GameObject)Instantiate(frostbolt, transform.position, q);
-		g.GetComponent<shot>().player = gameObject;
+		frostbolt.GetComponent<shot>().player = gameObject;
+		Network.Instantiate(frostbolt, transform.position, q, 0);
+		//g.GetComponent<shot>().player = gameObject;
 	}
 
 	void ArcaneExplosion(){
@@ -41,12 +40,12 @@ public class mage : MonoBehaviour {
 			last_heading = rigidbody2D.velocity;
 		}
 
-		if(!casting && Input.GetButton("A" + playerNum)){
+		if(!casting && Input.GetButton("A")){
 			casting = true;
 			start_cast = Time.time;
 			end_cast = frostbolt_cast_time + Time.time;
 		}
-		if(!casting && Input.GetButton("B" + playerNum)){
+		if(!casting && Input.GetButton("B")){
 			ArcaneExplosion();
 		}
 	}
