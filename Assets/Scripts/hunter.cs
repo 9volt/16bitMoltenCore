@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class warrior : MonoBehaviour {
+public class hunter : MonoBehaviour {
 	public GameObject sword;
 	public float sword_reswing;
 	private float next_swing;

@@ -13,8 +13,8 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   - 60: {fileID: 6000000}
-  - 114: {fileID: 11400004}
   - 148: {fileID: 14800000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: priest
   m_TagString: Player
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d11cb22b61d4eaab58a423528e5c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: b6227c1a7584943acb7c74cd0449f87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frostbolt: {fileID: 100000, guid: f399e9587adfd4de785628cdd5888bdd, type: 2}

@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04638eb62424642d9aec35e64c64a2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Priest
+  name: Warrior
   health: 100
   current_health: 100
   green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 100000, guid: e61266b643d604da5bc0396ce4e24c58, type: 2}
   sword_reswing: .5
-  blue: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

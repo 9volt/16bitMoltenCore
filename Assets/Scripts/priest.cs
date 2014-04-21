@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class mage : MonoBehaviour {
+public class priest : MonoBehaviour {
 	public GameObject frostbolt;
 	private bool casting = false;
 	public float frostbolt_cast_time;

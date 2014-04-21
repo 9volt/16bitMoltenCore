@@ -51,7 +51,15 @@ public class PlayerControl : MonoBehaviour {
 			}
 		} else {
 			this.enabled = false;
-			gameObject.GetComponent<mage>().enabled = false;
+			if(this.name == "mage(Clone)"){
+				gameObject.GetComponent<mage>().enabled = false;
+			} else if(this.name == "priest(Clone)"){
+				gameObject.GetComponent<priest>().enabled = false;
+			} else if(this.name == "warrior(Clone)"){
+				gameObject.GetComponent<warrior>().enabled = false;
+			} else if(this.name == "hunter(Clone)"){
+				gameObject.GetComponent<hunter>().enabled = false;
+			}
 		}
 	}
 }
