@@ -5,14 +5,12 @@ public class warrior : MonoBehaviour {
 	public GameObject sword;
 	public float sword_reswing;
 	private float next_swing;
-	private Camera camera;
 	private PlayerControl pc;
 
 	// Use this for initialization
 	void Start () {
 		next_swing = Time.time;
 		pc = gameObject.GetComponent<PlayerControl>();
-		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
 	void SwingSword(){

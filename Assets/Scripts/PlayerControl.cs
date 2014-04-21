@@ -8,11 +8,11 @@ public class PlayerControl : MonoBehaviour {
 	public float maxSpeed =5f;				// The fastest the player can travel in the x axis.
 	// Use this for initialization
 	public bool interrupt_casting = false;
-	private Camera camera;
+	private Camera cam;
 	public float dir = 0f;
 
 	void Start () {
-		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
 	// Update is called once per frame
@@ -24,10 +24,10 @@ public class PlayerControl : MonoBehaviour {
 			// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
 			if(h * rigidbody2D.velocity.x < maxSpeed){
 				// ... add a force to the player.
-				if(h < 0 && camera.WorldToScreenPoint(transform.position).x > 0){
+				if(h < 0 && cam.WorldToScreenPoint(transform.position).x > 0){
 					rigidbody2D.AddForce(Vector2.right * h * moveForce);
 					dir = 180f;
-				} else if(h > 0 && camera.WorldToScreenPoint(transform.position).x < Screen.width){
+				} else if(h > 0 && cam.WorldToScreenPoint(transform.position).x < Screen.width){
 					rigidbody2D.AddForce(Vector2.right * h * moveForce);
 					dir = 0f;
 				}
@@ -38,10 +38,10 @@ public class PlayerControl : MonoBehaviour {
 			// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
 			if(v * rigidbody2D.velocity.y < maxSpeed){
 				// ... add a force to the player.
-				if(v > 0 && camera.WorldToScreenPoint(transform.position).y < Screen.height){
+				if(v > 0 && cam.WorldToScreenPoint(transform.position).y < Screen.height){
 					dir = 90f;
 					rigidbody2D.AddForce(Vector2.up * v * moveForce);
-				} else if(v < 0 && camera.WorldToScreenPoint(transform.position).y > 0){
+				} else if(v < 0 && cam.WorldToScreenPoint(transform.position).y > 0){
 					rigidbody2D.AddForce(Vector2.up * v * moveForce);
 					dir = 270f;
 				}

@@ -7,12 +7,12 @@ public class player_health : MonoBehaviour {
 	private float barX;
 	private float barY;
 
-	public string name;
+	public string player_name;
 	public int health;
 	public int current_health;
 	public Texture green;
 	public Texture red;
-	public bool active = true;
+	public bool player_active = true;
 	public int playerNum;
 	// Use this for initialization
 	void Start () {
@@ -45,10 +45,10 @@ public class player_health : MonoBehaviour {
 
 
 	void OnGUI(){
-		if(active){
+		if(player_active){
 			GUI.DrawTexture(new Rect(barX, barY, barW, barH), red);
 			GUI.DrawTexture(new Rect(barX, barY, ((float)current_health/health) * barW, barH), green);
-			GUI.Label(new Rect(barX, barY, barW, barH), name);
+			GUI.Label(new Rect(barX, barY, barW, barH), player_name);
 		}
 	}
 }

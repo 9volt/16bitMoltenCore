@@ -7,7 +7,6 @@ public class hunter : MonoBehaviour {
 	public float multi_shot_speed;
 	private float next_shot;
 	private float next_multishot;
-	private Camera camera;
 	private PlayerControl pc;
 
 	// Use this for initialization
@@ -15,7 +14,6 @@ public class hunter : MonoBehaviour {
 		next_shot = Time.time;
 		next_multishot = Time.time;
 		pc = gameObject.GetComponent<PlayerControl>();
-		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
 	void Multishot(){
