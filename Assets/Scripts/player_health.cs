@@ -14,6 +14,7 @@ public class player_health : MonoBehaviour {
 	public Texture red;
 	public bool player_active = true;
 	public int playerNum;
+	private GameObject heal_duplication_check = null;
 	// Use this for initialization
 	void Start () {
 		int player_count = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -23,7 +24,7 @@ public class player_health : MonoBehaviour {
 		barY = (Screen.height * .9f) - barH;
 		current_health = health;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -35,6 +36,12 @@ public class player_health : MonoBehaviour {
 				damage(c.gameObject.GetComponent<shot>().damage);
 			}
 			Destroy(c.gameObject);
+		}
+		if(c.gameObject.tag == "player_healing" && c.gameObject != heal_duplication_check){
+			heal_duplication_check = c.gameObject;
+			if(networkView.isMine){
+				damage(c.gameObject.GetComponent<shot>().damage);
+			}
 		}
 	}
 

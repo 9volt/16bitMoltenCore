@@ -9,15 +9,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
+  - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
   - 50: {fileID: 5000000}
-  - 114: {fileID: 11400002}
-  - 60: {fileID: 6000000}
-  - 148: {fileID: 14800000}
-  - 114: {fileID: 11400004}
+  - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: priest
-  m_TagString: Player
+  m_Name: heal
+  m_TagString: player_healing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79263783, y: -.245947242, z: 0}
+  m_LocalPosition: {x: -7.94430542, y: -4.28270245, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,16 +38,16 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 8
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!60 &6000000
-PolygonCollider2D:
+--- !u!61 &6100000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -57,16 +55,22 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Poly:
-    m_Paths:
-    - - {x: -.28125, y: .5}
-      - {x: -.3125, y: .46875}
-      - {x: -.3125, y: -.0625}
-      - {x: -.25, y: -.4375}
-      - {x: .1875, y: -.4375}
-      - {x: .21875, y: -.15625}
-      - {x: .21875, y: .4375}
-      - {x: .09375, y: .5}
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 671bed5e615f24683b4fbdf3395b5ffd, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,59 +79,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 023d31f7f2c4c4791b9992754589a9c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 032cb5a3196cd46778a4be799b579b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 35
-  maxSpeed: 5
-  interrupt_casting: 0
-  dir: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04638eb62424642d9aec35e64c64a2e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player_name: 
-  health: 50
-  current_health: 50
-  green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
-  red: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
-  player_active: 1
-  playerNum: 1
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6227c1a7584943acb7c74cd0449f87b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heal: {fileID: 100000, guid: 53b27087635ac40749c7c364fa7a78b7, type: 2}
-  dispel: {fileID: 100000, guid: 24156cd3fed514f0a8e3bfe58802800e, type: 2}
-  dispel_recast: 5
-  heal_cast_time: 2.5
-  blue: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
---- !u!148 &14800000
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 400000}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
+  damage: -15
+  player: {fileID: 0}
+  speed: 150
+  time_to_live: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,7 +107,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: f53c2d1bcc27f4065a2f99d91cc90854, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85bcc4eaadfca4859ba25284ab4d76fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
