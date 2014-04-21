@@ -50,14 +50,6 @@ public class boss_health : MonoBehaviour {
 		}
 	}
 
-	public GameObject[] GetPlayers(){
-		GameObject[] returns = new GameObject[aggro_table.Keys.Count];
-		for(int i = 0; i < returns.Length; i++){
-			aggro_table.Keys.CopyTo(returns, i);
-		}
-		return returns;
-	}
-
 	public void damage(int damage, GameObject player){
 		if(networkView.isMine){
 			current_health -= damage;

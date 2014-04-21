@@ -23,7 +23,7 @@ public class lucifron : MonoBehaviour {
 
 	void CursePlayers(){
 		curse_count++;
-		foreach(GameObject player in health.GetPlayers()){
+		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
 			lucifron_curse.GetComponent<lucifrons_curse>().target = player;
 			Network.Instantiate(lucifron_curse, player.transform.position, player.transform.rotation, 0);
 		}

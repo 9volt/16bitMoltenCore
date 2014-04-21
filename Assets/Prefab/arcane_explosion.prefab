@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0169a83a9a2b048dcbe33a3f7474eaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 5
   damage: 10
   player: {fileID: 0}
 --- !u!1001 &100100000

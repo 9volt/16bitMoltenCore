@@ -49,6 +49,7 @@ public class player_health : MonoBehaviour {
 		current_health -= damage;
 		networkView.RPC("set_health", RPCMode.AllBuffered, current_health);
 		if(current_health < 0) current_health = 0;
+		if(current_health > health) current_health = health;
 	}
 	
 	[RPC]
