@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04638eb62424642d9aec35e64c64a2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_name: 
+  player_name: Mage
   health: 50
   current_health: 50
   green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
