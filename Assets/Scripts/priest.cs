@@ -3,6 +3,9 @@ using System.Collections;
 
 public class priest : MonoBehaviour {
 	public GameObject frostbolt;
+	public GameObject dispel;
+	public float dispel_recast;
+	private float next_dispel;
 	private bool casting = false;
 	public float frostbolt_cast_time;
 	private float end_cast;
@@ -13,6 +16,7 @@ public class priest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		next_dispel = Time.time;
 		pc = gameObject.GetComponent<PlayerControl>();
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
@@ -23,9 +27,13 @@ public class priest : MonoBehaviour {
 		//g.GetComponent<shot>().player = gameObject;
 	}
 
-	void ArcaneExplosion(){
-
+	void Dispel(){
+		if(Time.time > next_dispel){
+			Network.Instantiate(dispel, transform.position, transform.rotation, 0);
+			next_dispel = Time.time + dispel_recast;
+		}
 	}
+
 
 	// Update is called once per frame
 	void Update () {
@@ -42,7 +50,7 @@ public class priest : MonoBehaviour {
 			end_cast = frostbolt_cast_time + Time.time;
 		}
 		if(!casting && Input.GetButton("B")){
-			ArcaneExplosion();
+			Dispel();
 		}
 	}
 
