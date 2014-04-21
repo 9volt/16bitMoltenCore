@@ -9,14 +9,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400000}
-  - 60: {fileID: 6000000}
+  - 95: {fileID: 9500000}
   - 50: {fileID: 5000000}
-  - 148: {fileID: 14800000}
-  - 114: {fileID: 11400002}
+  - 61: {fileID: 6100000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: lucifron
-  m_TagString: enemy
+  m_Name: enemy_frostbolt
+  m_TagString: player_damaging
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.60153675, y: .182474136, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -4.15041494, y: -.200253963, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!50 &5000000
@@ -38,43 +37,40 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mass: 5
-  m_LinearDrag: 8
+  m_Mass: 1
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
+  m_GravityScale: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!60 &6000000
-PolygonCollider2D:
+--- !u!61 &6100000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .03125, y: .3125}
-      - {x: .0625, y: .34375}
-      - {x: .0625, y: .46875}
-      - {x: .0625, y: .5}
-      - {x: -.25, y: .5}
-      - {x: -.21875, y: .34375}
-      - {x: -.1875, y: .3125}
-      - {x: -.1875, y: .3125}
-      - {x: -.34375, y: .28125}
-      - {x: -.34375, y: .125}
-      - {x: -.34375, y: -.1875}
-      - {x: -.15625, y: -.4375}
-      - {x: -.0625, y: -.46875}
-      - {x: .28125, y: -.46875}
-      - {x: .28125, y: -.3125}
-      - {x: .1875, y: .28125}
-      - {x: .09375, y: .3125}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eeb3527d7904c45ebb35584ce1de6e06, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,43 +79,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d873c1bf9475c4b40a2566fd7864b857, type: 3}
+  m_Script: {fileID: 11500000, guid: 032cb5a3196cd46778a4be799b579b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss_name: Lucifron
-  health: 100
-  current_health: 0
-  green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
-  red: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
-  boss_active: 1
-  attacking: 1
-  attack_speed: 1.5
-  attack_damage: 5
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e545e2a649b4a0fb751cc92b69d4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lucifron_curse: {fileID: 100000, guid: da5f79e1185e64d4f927c69d8d33cc47, type: 2}
-  lucifron_add: {fileID: 100000, guid: a61e9e5d6d1044708b31f582eb9501b0, type: 2}
---- !u!148 &14800000
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 400000}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
+  damage: 25
+  player: {fileID: 0}
+  speed: 250
+  time_to_live: 20
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -141,7 +107,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 574c31af118a548c6a32ff47edffc1a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c625407ab87064e218f4a6226d44f580, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

@@ -8,7 +8,7 @@ public class boss_health : MonoBehaviour {
 	public int current_health;
 	public Texture green;
 	public Texture red;
-	public bool boss_active = false;
+	public bool boss_active = true;
 	private Dictionary<GameObject, float> aggro_table;
 	private GameObject current_aggro;
 	public bool attacking = true;
@@ -48,6 +48,14 @@ public class boss_health : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public GameObject[] GetPlayers(){
+		GameObject[] returns = new GameObject[aggro_table.Keys.Count];
+		for(int i = 0; i < returns.Length; i++){
+			aggro_table.Keys.CopyTo(returns, i);
+		}
+		return returns;
 	}
 
 	void damage(int damage, GameObject player){

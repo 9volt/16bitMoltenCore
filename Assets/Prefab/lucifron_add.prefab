@@ -9,13 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400000}
   - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
   - 148: {fileID: 14800000}
-  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: lucifron
+  m_Name: lucifron_add
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.60153675, y: .182474136, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!50 &5000000
@@ -83,31 +82,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d873c1bf9475c4b40a2566fd7864b857, type: 3}
+  m_Script: {fileID: 11500000, guid: 39b2357431a2c445d8e9f2a5972f8ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss_name: Lucifron
-  health: 100
+  health: 50
   current_health: 0
-  green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
-  red: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
-  boss_active: 1
   attacking: 1
-  attack_speed: 1.5
-  attack_damage: 5
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e545e2a649b4a0fb751cc92b69d4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lucifron_curse: {fileID: 100000, guid: da5f79e1185e64d4f927c69d8d33cc47, type: 2}
-  lucifron_add: {fileID: 100000, guid: a61e9e5d6d1044708b31f582eb9501b0, type: 2}
+  attack_speed: 5
+  shot: {fileID: 100000, guid: 7a3b55665882f4d9da73f88068de58a2, type: 2}
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

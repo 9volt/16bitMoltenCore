@@ -29,6 +29,15 @@ public class player_health : MonoBehaviour {
 
 	}
 
+	void OnTriggerEnter2D(Collider2D c){
+		if(c.gameObject.tag == "player_damaging"){
+			if(networkView.isMine){
+				damage(c.gameObject.GetComponent<shot>().damage);
+			}
+			Destroy(c.gameObject);
+		}
+	}
+
 	public void damage(int damage){
 		current_health -= damage;
 		networkView.RPC("set_health", RPCMode.AllBuffered, current_health);

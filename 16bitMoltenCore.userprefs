@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/hunter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ranged_add_health.cs">
     <Files>
-      <File FileName="Assets/Scripts/NetworkManager.cs" Line="103" Column="28" />
-      <File FileName="Assets/Scripts/mage.cs" Line="38" Column="4" />
-      <File FileName="Assets/Scripts/boss_health.cs" Line="58" Column="1" />
-      <File FileName="Assets/Scripts/player_health.cs" Line="42" Column="32" />
+      <File FileName="Assets/Scripts/boss_health.cs" Line="11" Column="32" />
+      <File FileName="Assets/Scripts/player_health.cs" Line="15" Column="21" />
       <File FileName="Assets/Scripts/shot.cs" Line="20" Column="35" />
-      <File FileName="Assets/Scripts/warrior.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="61" Column="35" />
-      <File FileName="Assets/Scripts/hunter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/warrior.cs" Line="19" Column="30" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="13" Column="2" />
+      <File FileName="Assets/Scripts/hunter.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/lucifron.cs" Line="16" Column="25" />
+      <File FileName="Assets/Scripts/ranged_add_health.cs" Line="24" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

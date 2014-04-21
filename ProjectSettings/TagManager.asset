@@ -5,6 +5,7 @@ TagManager:
   tags:
   - boss_damaging
   - enemy
+  - player_damaging
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
