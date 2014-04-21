@@ -15,7 +15,7 @@ GameObject:
   - 148: {fileID: 14800000}
   m_Layer: 0
   m_Name: lucifron
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,12 +85,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d873c1bf9475c4b40a2566fd7864b857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Lucifron
+  boss_name: 
   health: 100
   current_health: 0
   green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
   red: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
-  active: 1
+  boss_active: 0
   attacking: 1
   attack_speed: 1.5
   attack_damage: 5
