@@ -112,8 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frostbolt: {fileID: 100000, guid: f399e9587adfd4de785628cdd5888bdd, type: 2}
+  arcane_explosion: {fileID: 100000, guid: f9702c363bad24eefaf6f8153c5d9ee5, type: 2}
   frostbolt_cast_time: 1.5
   blue: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
+  ae_recast: 5
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

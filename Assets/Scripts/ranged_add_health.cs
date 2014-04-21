@@ -27,7 +27,7 @@ public class ranged_add_health : MonoBehaviour {
 	}
 	
 
-	void damage(int damage){
+	public void damage(int damage){
 		if(networkView.isMine){
 			current_health -= damage;
 			networkView.RPC("set_health", RPCMode.AllBuffered, current_health);

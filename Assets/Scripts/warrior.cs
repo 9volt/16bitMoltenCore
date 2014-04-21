@@ -3,13 +3,18 @@ using System.Collections;
 
 public class warrior : MonoBehaviour {
 	public GameObject sword;
+	public GameObject shout;
 	public float sword_reswing;
 	private float next_swing;
+	public float shout_recast;
+	private float next_shout;
+
 	private PlayerControl pc;
 
 	// Use this for initialization
 	void Start () {
 		next_swing = Time.time;
+		next_shout = Time.time;
 		pc = gameObject.GetComponent<PlayerControl>();
 	}
 
@@ -31,7 +36,11 @@ public class warrior : MonoBehaviour {
 	}
 
 	void ThreateningShout(){
-
+		if(Time.time > next_shout){
+			next_shout = Time.time + shout_recast;
+			shout.GetComponent<shout>().player = gameObject;
+			Network.Instantiate(shout, transform.position, transform.rotation, 0);
+		}
 	}
 
 	// Update is called once per frame

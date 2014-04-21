@@ -3,6 +3,7 @@ using System.Collections;
 
 public class mage : MonoBehaviour {
 	public GameObject frostbolt;
+	public GameObject arcane_explosion;
 	private bool casting = false;
 	public float frostbolt_cast_time;
 	private float end_cast;
@@ -10,9 +11,13 @@ public class mage : MonoBehaviour {
 	public Texture blue;
 	private Camera cam;
 	private PlayerControl pc;
+	public float ae_recast;
+	private float next_ae;
+
 
 	// Use this for initialization
 	void Start () {
+		next_ae = Time.time;
 		pc = gameObject.GetComponent<PlayerControl>();
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
@@ -24,7 +29,11 @@ public class mage : MonoBehaviour {
 	}
 
 	void ArcaneExplosion(){
-
+		if(Time.time > next_ae){
+			next_ae = Time.time + ae_recast;
+			arcane_explosion.GetComponent<arcane_explosion>().player = gameObject;
+			Network.Instantiate(arcane_explosion, transform.position, transform.rotation, 0);
+		}
 	}
 
 	// Update is called once per frame

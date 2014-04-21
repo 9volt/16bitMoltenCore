@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 100000, guid: e61266b643d604da5bc0396ce4e24c58, type: 2}
+  shout: {fileID: 100000, guid: 95cfbcb79ae2b42ccb91c62e751830c3, type: 2}
   sword_reswing: .5
+  shout_recast: 5
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

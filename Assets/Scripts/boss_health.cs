@@ -58,7 +58,7 @@ public class boss_health : MonoBehaviour {
 		return returns;
 	}
 
-	void damage(int damage, GameObject player){
+	public void damage(int damage, GameObject player){
 		if(networkView.isMine){
 			current_health -= damage;
 			networkView.RPC("set_health", RPCMode.AllBuffered, current_health);
@@ -72,6 +72,17 @@ public class boss_health : MonoBehaviour {
 		}
 	}
 
+	public void increase_threat(float inc_threat, GameObject player){
+		if(networkView.isMine){
+			float threat;
+			if(aggro_table.TryGetValue(player, out threat)){
+				aggro_table[player] = threat + inc_threat;
+			} else {
+				aggro_table.Add(player, inc_threat);
+			}
+		}
+	}
+	
 	[RPC]
 	void set_health(int health){
 		current_health = health;
