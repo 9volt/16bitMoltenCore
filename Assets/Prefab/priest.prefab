@@ -56,7 +56,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Poly:
     m_Paths:
     - - {x: -.28125, y: .5}
@@ -93,12 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04638eb62424642d9aec35e64c64a2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Priest
+  player_name: 
   health: 50
   current_health: 50
   green: {fileID: 2800000, guid: dda46f3ebaf04488a842805c94ba47ad, type: 3}
   red: {fileID: 2800000, guid: 30c92dad6bd6740a89b06560fe5c5907, type: 3}
-  active: 1
+  player_active: 1
   playerNum: 1
 --- !u!114 &11400004
 MonoBehaviour:

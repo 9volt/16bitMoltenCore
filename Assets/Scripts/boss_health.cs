@@ -87,9 +87,6 @@ public class boss_health : MonoBehaviour {
 			}
 			Destroy(c.gameObject);
 		}
-	}
-
-	void OnCollisionEnter2D(Collision2D c){
 		if(networkView.isMine){
 			if(c.gameObject == current_aggro){
 				touching = true;
@@ -97,7 +94,7 @@ public class boss_health : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D c){
+	void OnTriggerExit2D(Collider2D c){
 		if(networkView.isMine){
 			if(c.gameObject == current_aggro){
 				touching = false;
@@ -106,7 +103,7 @@ public class boss_health : MonoBehaviour {
 	}
 
 	
-	void OnCollisionStay2D(Collision2D c){
+	void OnTriggerStay2D(Collider2D c){
 		if(c.gameObject == current_aggro){
 			touching = true;
 			if(Time.time > next_attack){
